@@ -144,7 +144,6 @@ public class ControleUsuario extends HttpServlet {
 					usuario = daoUser.salvar(usuario, new GenericUtil().getUserSession(request));
 
 				}
-				request.setAttribute("editar", "Editar Usuario ");
 				request.setAttribute("user", usuario);
 				request.setAttribute("msg", msg);
 				request.getRequestDispatcher(PaginasRedirect.PAGINA_CADASTRO_USUARIO).forward(request, response);
