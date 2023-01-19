@@ -30,7 +30,7 @@ import com.google.gson.Gson;
 
 import br.curso.jsp.constante.paginas.PaginasRedirect;
 import br.curso.jsp.dao.user.DAOUser;
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 import br.curso.jsp.util.GenericUtil;
 
 @MultipartConfig
@@ -132,10 +132,10 @@ public class ControleUsuario extends HttpServlet {
 
 				}
 
-				if (daoUser.existeUsuario(usuario) == true && usuario.novoUsuario()) {
+				if (daoUser.existeUsuario(usuario)  && usuario.novoUsuario()) {
 					msg = "Usuario Ja Existe ..";
 				} else {
-					if (usuario.getId() == null) {
+					if (usuario.novoUsuario()) {
 						msg = "Usuario Salvo Com Sucesso";
 					} else {
 						msg = "Usuario Atualizado  Com Sucesso";

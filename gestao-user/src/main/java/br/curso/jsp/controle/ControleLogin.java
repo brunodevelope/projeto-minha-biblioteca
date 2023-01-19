@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import br.curso.jsp.constante.paginas.PaginasRedirect;
 import br.curso.jsp.dao.user.DAOUser;
 import br.curso.jsp.login.DAOAutenticarUsuario;
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 
 @WebServlet(urlPatterns = { "/login", "/logout" })
 public class ControleLogin extends HttpServlet {

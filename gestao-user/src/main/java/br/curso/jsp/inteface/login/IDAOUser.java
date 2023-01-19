@@ -3,7 +3,7 @@ package br.curso.jsp.inteface.login;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 
 public interface IDAOUser {
     

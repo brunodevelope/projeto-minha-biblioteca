@@ -1,5 +1,5 @@
 
-package br.curso.jsp.model.user;
+package br.curso.jsp.model;
 
 import java.io.Serializable;
 import java.sql.Date;

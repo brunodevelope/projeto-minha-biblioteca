@@ -6,7 +6,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 <body>
 	<jsp:include page="nav-bar.jsp"></jsp:include>
-	<main style="margin-top: 40px; height: 800px;">
+	<main style="margin-top: 40px; width: 100%; height: 100%;  position: absolute;">
 		<div class="container pt-4">
 
 
@@ -20,10 +20,8 @@
 			</c:if>
 
 
-			<div style="text-align: center; font-size: 24px;">Cadastro De
-				Usuarios</div>
-			<form class="row" method="post" enctype="multipart/form-data"
-				action="<%=request.getContextPath()%>/salvar">
+			<div style="text-align: center; font-size: 24px;"><h1>Cadastra Usuario</h1></div>
+			<form class="row" method="post" enctype="multipart/form-data"	action="<%=request.getContextPath()%>/salvar">
 
 				<br>
 				<div class="mb-3">

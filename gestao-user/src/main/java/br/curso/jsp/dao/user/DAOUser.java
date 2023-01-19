@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import br.curso.jsp.conect.banco.user.DaoConectBanco;
 import br.curso.jsp.inteface.login.IDAOUser;
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 
 public class DAOUser implements IDAOUser {
 

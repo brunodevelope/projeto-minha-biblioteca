@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 
 import br.curso.jsp.dao.user.DAOUser;
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 
 public class GenericUtil {
 

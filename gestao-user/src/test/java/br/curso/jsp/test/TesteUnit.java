@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import br.curso.jsp.dao.user.DAOUser;
 import br.curso.jsp.login.DAOAutenticarUsuario;
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 
 class TesteUnit {
 	private DAOUser daoUser = new DAOUser();

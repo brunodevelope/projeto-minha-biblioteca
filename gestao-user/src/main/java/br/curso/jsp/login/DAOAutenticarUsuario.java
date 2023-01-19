@@ -9,7 +9,7 @@ import javax.swing.text.StyledEditorKit.BoldAction;
 
 import br.curso.jsp.conect.banco.user.DaoConectBanco;
 import br.curso.jsp.inteface.login.IDAOAutenticarUsuario;
-import br.curso.jsp.model.user.Usuario;
+import br.curso.jsp.model.Usuario;
 
 public class DAOAutenticarUsuario implements IDAOAutenticarUsuario {
 	private Connection connecxaoComBanco;
