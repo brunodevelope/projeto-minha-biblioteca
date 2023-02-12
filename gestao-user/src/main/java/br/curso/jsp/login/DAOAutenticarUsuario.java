@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import javax.swing.text.StyledEditorKit.BoldAction;
 
 import br.curso.jsp.conect.banco.user.DaoConectBanco;
-import br.curso.jsp.inteface.login.IDAOAutenticarUsuario;
+import br.curso.jsp.inteface.repository.IDAOAutenticarUsuario;
 import br.curso.jsp.model.Usuario;
 
 public class DAOAutenticarUsuario implements IDAOAutenticarUsuario {

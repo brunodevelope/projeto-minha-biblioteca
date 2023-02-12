@@ -1,4 +1,4 @@
-package br.curso.jsp.dao.user;
+package br.curso.jsp.dao.user.repository;
 
 
 import java.sql.Connection;
@@ -14,14 +14,14 @@ import java.util.ListIterator;
 import javax.servlet.http.HttpServletRequest;
 
 import br.curso.jsp.conect.banco.user.DaoConectBanco;
-import br.curso.jsp.inteface.login.IDAOUser;
+import br.curso.jsp.inteface.repository.IDAOUserRepository;
 import br.curso.jsp.model.Usuario;
 
-public class DAOUser implements IDAOUser {
+public class DaoUsuarioRepository implements IDAOUserRepository {
 
 	private Connection conect;
 
-	public DAOUser() {
+	public DaoUsuarioRepository() {
 		this.conect = DaoConectBanco.getConnection();
 	}
 

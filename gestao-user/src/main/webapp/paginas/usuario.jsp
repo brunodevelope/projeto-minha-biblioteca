@@ -1,178 +1,176 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <jsp:include page="header.jsp"></jsp:include>
 <body>
-	<jsp:include page="nav-bar.jsp"></jsp:include>
-	<main style="margin-top: 40px; width: 100%; height: 100%;  position: absolute;">
-		<div class="container pt-4">
+	<div class="container-xxl position-relative bg-white d-flex p-0">
+		<jsp:include page="sider-bar.jsp"></jsp:include>
+		<div class="content">
+			<jsp:include page="nav-bar.jsp"></jsp:include>
+			<div class="container" style="height: 100%;">
+			   
+			      <div class="title-page" style="height: 50px; margin-top: 30px;">
+			                   <h3 style="color: #808080; text-align: center;" class="title">Cadastrar Usuarios</h3>
+			      </div>
+			      
+				<div class="body-form"  style="margin-top: 50px;" >
 
-
-			<c:if test="${msg != null}">
-				<div class="alert alert-warning alert-dismissible fade show"
-					role="alert">
-					<strong>Menssagem !</strong> ${msg}.
-					<button type="button" class="btn-close" data-bs-dismiss="alert"
-						aria-label="Close"></button>
-				</div>
-			</c:if>
-
-
-			<div style="text-align: center; font-size: 24px;"><h1>Cadastra Usuario</h1></div>
-			<form class="row" method="post" enctype="multipart/form-data"	action="<%=request.getContextPath()%>/salvar">
-
-				<br>
-				<div class="mb-3">
-					<c:if test="${user.foto == null }">
-						<img alt="" src="images/logo-perfil.jpg" id="previw" width="140px"
-							height="135px" style="border-radius: 50% 50%;">
-					</c:if>
-
-					<c:if test="${user.foto != null }">
-						<img alt="" src="${user.foto}" id="previw" width="140px"
-							height="135px" style="border-radius: 50% 50%;">
-					</c:if>
-					<br> <br> <input accept="image/*" name="foto"
-						onchange="carregarFoto()" style="width: 300px;"
-						class="form-control" type="file" id="foto">
-				</div>
-
-
-				<div class="col-md-2">
-					<label for="id" class="form-label">Id</label> <input
-						readonly="true" value="${user.id }" type="text" name="id"
-						class="form-control" id="id">
-				</div>
-				<div class="col-md-8">
-					<label for="nome" class="form-label">Nome</label>
-					<c:if test="${user.nome == null }">
-						<input type="text" name="nome" value="${user.nome }"
-							class="form-control" id="nome">
-					</c:if>
-
-
-					<c:if test="${user.nome != null }">
-						<input type="text" name="nome" value="${user.nome }"
-							readonly="readonly" class="form-control" id="nome">
-					</c:if>
-
-				</div>
-
-
-				<div class="col-md-6">
-					<label for="email" class="form-label">Email</label> <input
-						type="email" name="email" value="${user.email }"
-						class="form-control" id="email">
-				</div>
-
-
-				<div class="col-md-6">
-					<label for="data-nascimento" class="form-label">Data
-						Nscimento</label>
-					<c:if test="${user.dataNascimento != null }">
-						<input type="date" value="${user.dataNascimento }"
-							readonly="readonly" name="data-nascimento" class="form-control"
-							id="data-nascimento">
-					</c:if>
-					<c:if test="${user.dataNascimento == null }">
-						<input type="date" value="${user.dataNascimento }"
-							name="data-nascimento" class="form-control" id="data-nascimento">
-					</c:if>
-				</div>
-
-
-				<div class="col-md-6">
-					<label for="login" class="form-label">Login</label> <input
-						type="text" value="${user.login }" name="login"
-						class="form-control" id="login">
-				</div>
-
-
-
-				<div class="col-md-6">
-					<label for="senha" class="form-label">Senha</label> <input
-						type="password" value="${user.senha }" name="senha"
-						class="form-control" id="senha">
-				</div>
-
-				<div style="margin-top: 30px;" class="col-12">
-					<button type="submit" class="btn btn-primary">Salvar</button>
-					<c:if test="${dados.administrador  }">
-						<button type="button" id="bt-limpar" class="btn btn-danger">Limpar</button>
-						<button type="button" id="bt-deletar" class="btn btn-success">Deletar</button>
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#exampleModal">Pesquisar</button>
-					</c:if>
-
-				</div>
-
-
-				<br>
-			</form>
-		</div>
-
-
-		<div class="modal fade" id="exampleModal" tabindex="-1"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Pesquisar
-							Usuario Por Nome</h5>
-
-					</div>
-					<div class="modal-body">
-						<div class="input-group mb-3">
-							<input type="text" id="nome-pesquisado" class="form-control"
-								placeholder="digite o nome do usuario  "
-								aria-label="Recipient's username"
-								aria-describedby="button-addon2">
-							<button class="btn btn-success" type="button" id="bt-buscar">Buscar
-							</button>
+					<c:if test="${msg != null}">
+						<div class="alert alert-danger alert-dismissible fade show"
+							role="alert">
+							<i class="fa fa-exclamation-circle me-2"></i><font
+								_mstmutation="1" _msttexthash="1590017" _msthash="57">${msg}!
+							</font>
+							<button type="button" class="btn-close" data-bs-dismiss="alert"
+								aria-label="Fechar" _mstaria-label="59709" _msthash="56"></button>
 						</div>
-						<div class="container" style="height: 300px; overflow: scroll;">
-							<table id="tabela" class="table">
-								<thead>
-									<tr>
-										<th scope="col">ID</th>
-										<th scope="col">NOME</th>
-										<th scope="col">EMAIL</th>
-										<th scope="col">VER</th>
-									</tr>
-								</thead>
-								<tbody>
+					</c:if>
 
-								</tbody>
-							</table>
+					<div>
+						<div class="body-file">
+							<div class="content-file ">
+								<c:if test="${user.foto == null }">
+									<img alt="" id="previw" src="img/perfil2.jpg">
+								</c:if>
+
+								<c:if test="${user.foto != null }">
+									<img alt="" id="previw" src="${user.foto }">
+								</c:if>
+							</div>
 						</div>
 					</div>
-					<div style="text-align: center; color: blue;">
-						<p id="total"></p>
+
+					<div class="col">
+
+						<form enctype="multipart/form-data" class="row g-3"
+							action="<%=request.getContextPath()%>/salvar" method="post">
+							<div class="row-md-3">
+								<div class="col-8">
+									<label for="foto" class="form-label">Coleque Sua Foto
+										Aqui</label> <input type="file" name="foto" onchange="carregarFoto();"
+										accept="image/*" class="form-control" id="foto">
+								</div>
+
+							</div>
+
+							<div class="col-md-1">
+								<label for="id" class="form-label">Id</label>
+								<c:if test="${user.id!= null }">
+									<input type="text" readonly="readonly" value="${user.id }"
+										name="id" class="form-control" id="id">
+								</c:if>
+								<c:if test="${user.id== null }">
+									<input type="text" value="${user.id }" name="id"
+										class="form-control" id="id">
+								</c:if>
+							</div>
+
+							<div class="col-md-6">
+								<label for="nome" class="form-label">Nome</label>
+								     <input  type="text" value="${user.nome }" name="nome"	class="form-control" id="nome">
+							
+							</div>
+
+							<div class="col-md-6">
+								<label for="email" class="form-label">E-mail</label> <input
+									type="email" value="${user.email }" name="email"
+									class="form-control" id="email">
+							</div>
+
+							<div class="col-md-6">
+								<label for="dataNascimento" class="form-label">Data
+									Nascimento</label> 
+									<c:if test="${user.dataNascimento  !=null}">
+									      <input readonly="readonly" type="date" value="${user.dataNascimento }"	name="dataNascimento" class="form-control" id="dataNascimento">
+									</c:if>
+									
+									<c:if test="${user.dataNascimento  ==null}">
+									      <input  type="date" value="${user.dataNascimento }"	name="dataNascimento" class="form-control" id="dataNascimento">
+									</c:if>
+							</div>
+
+							<div class="col-md-6">
+								<label for="login" class="form-label">Login</label> <input
+									type="text" value="${user.login }" name="login"
+									class="form-control" id="login">
+							</div>
+
+							<div class="col-md-6">
+								<label for="senha" class="form-label">Senha</label> <input
+									type="password" value="${user.senha }" name="senha"
+									class="form-control" id="senha">
+							</div>
+
+
+							<div class="col-12">
+								<button type="submit" class="btn btn-primary">Salvar Usuario</button>
+								<button type="button" class="btn btn-primary" id="btn-limpar">Limpar</button>
+								<button type="button" id="bt-deletar" class="btn btn-primary">Deletar	Usuario</button>
+								<button type="button" class="btn btn-primary"		data-bs-toggle="modal" data-bs-target="#exampleModal">Pesquisar Usuario</button>
+
+							</div>
+						</form>
 
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger"
-							data-bs-dismiss="modal">Feichar</button>
+					<!-- modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Pesquisar
+										Usuario Por Nome</h5>
 
+								</div>
+								<div class="modal-body">
+									<div class="input-group mb-3">
+										<input type="text" id="nome-pesquisado" class="form-control"
+											placeholder="digite o nome do usuario  "
+											aria-label="Recipient's username"
+											aria-describedby="button-addon2">
+										<button class="btn btn-success" type="button" id="bt-buscar">Buscar
+										</button>
+									</div>
+									<div class="container" style="height: 300px; overflow: scroll;">
+										<table id="tabela" class="table">
+											<thead>
+												<tr>
+													<th scope="col">ID</th>
+													<th scope="col">NOME</th>
+													<th scope="col">EMAIL</th>
+													<th scope="col">VER</th>
+												</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div style="text-align: center; color: blue;">
+									<p id="total"></p>
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-danger"
+										data-bs-dismiss="modal">Feichar</button>
+
+								</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
 			</div>
-		</div>
-	</main>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 	<script type="text/javascript">
-		function voltarMenu() {
-			var btmenu = document.getElementById(" ul li > bt-home")
-			{
-				window.history.back();
-			}
-		}
-
 		function carregarFoto() {
 			var foto = document.getElementById("foto").files[0];
 			var previw = document.getElementById("previw")
@@ -214,7 +212,7 @@
 			}
 		});
 
-		$("#bt-limpar").click(function() {
+		$("#btn-limpar").click(function() {
 			limpar()
 		});
 		function limpar() {
@@ -223,7 +221,8 @@
 			$("#email").val(null);
 			$("#login").val(null);
 			$("#senha").val(null);
-			$("#data-nascimento").val(null);
+			$("#dataNascimento").val(null);
+
 		}
 
 		function voltarInicio() {
@@ -289,9 +288,11 @@
 		}
 	</script>
 	<jsp:include page="script.jsp"></jsp:include>
+
+	
+
+
+
 </body>
-
-
-
 
 </html>

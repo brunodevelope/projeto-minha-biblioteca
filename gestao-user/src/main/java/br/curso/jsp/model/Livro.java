@@ -5,50 +5,23 @@ import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class Livro implements Serializable {
-	
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -5025346886502074460L;
 	private long idLivro;
 	private long codigoLivro;
-	private String nomeLivro;
+	private String tituloLivro;
+	private String subTituloLivro;
 	private String descricaoLivro;
-	private String pdfLivro;
-	private String fotoLivro;
+	private boolean livrosFavoritos;
+	private Integer quantidadePaginasLivro;
+
+	private FileDocumeto anexoLivro;
+	private FileDocumeto capaLivro;
 	private Usuario idResponssavelDoCadastroDoLivro;
-	private String  categoriaLivro;
+	private AutorLivro autorLivro;
 	
 	
 	
-	@Override
-	public String toString() {
-		return "Livro [idLivro=" + idLivro + ", codigoLivro=" + codigoLivro + ", nomeLivro=" + nomeLivro
-				+ ", descricaoLivro=" + descricaoLivro + ", pdfLivro=" + pdfLivro + ", fotoLivro=" + fotoLivro
-				+ ", idResponssavelDoCadastroDoLivro=" + idResponssavelDoCadastroDoLivro + ", categoriaLivro="
-				+ categoriaLivro + "]";
-	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(categoriaLivro, codigoLivro, descricaoLivro, fotoLivro, idLivro,
-				idResponssavelDoCadastroDoLivro, nomeLivro, pdfLivro);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Livro other = (Livro) obj;
-		return Objects.equals(categoriaLivro, other.categoriaLivro) && codigoLivro == other.codigoLivro
-				&& Objects.equals(descricaoLivro, other.descricaoLivro) && Objects.equals(fotoLivro, other.fotoLivro)
-				&& idLivro == other.idLivro
-				&& Objects.equals(idResponssavelDoCadastroDoLivro, other.idResponssavelDoCadastroDoLivro)
-				&& Objects.equals(nomeLivro, other.nomeLivro) && Objects.equals(pdfLivro, other.pdfLivro);
-	}
 	public long getIdLivro() {
 		return idLivro;
 	}
@@ -61,11 +34,17 @@ public class Livro implements Serializable {
 	public void setCodigoLivro(long codigoLivro) {
 		this.codigoLivro = codigoLivro;
 	}
-	public String getNomeLivro() {
-		return nomeLivro;
+	public String getTituloLivro() {
+		return tituloLivro;
 	}
-	public void setNomeLivro(String nomeLivro) {
-		this.nomeLivro = nomeLivro;
+	public void setTituloLivro(String tituloLivro) {
+		this.tituloLivro = tituloLivro;
+	}
+	public String getSubTituloLivro() {
+		return subTituloLivro;
+	}
+	public void setSubTituloLivro(String subTituloLivro) {
+		this.subTituloLivro = subTituloLivro;
 	}
 	public String getDescricaoLivro() {
 		return descricaoLivro;
@@ -73,17 +52,23 @@ public class Livro implements Serializable {
 	public void setDescricaoLivro(String descricaoLivro) {
 		this.descricaoLivro = descricaoLivro;
 	}
-	public String getPdfLivro() {
-		return pdfLivro;
+	public Integer getQuantidadePaginasLivro() {
+		return quantidadePaginasLivro;
 	}
-	public void setPdfLivro(String pdfLivro) {
-		this.pdfLivro = pdfLivro;
+	public void setQuantidadePaginasLivro(Integer quantidadePaginasLivro) {
+		this.quantidadePaginasLivro = quantidadePaginasLivro;
 	}
-	public String getFotoLivro() {
-		return fotoLivro;
+	public FileDocumeto getAnexoLivro() {
+		return anexoLivro;
 	}
-	public void setFotoLivro(String fotoLivro) {
-		this.fotoLivro = fotoLivro;
+	public void setAnexoLivro(FileDocumeto anexoLivro) {
+		this.anexoLivro = anexoLivro;
+	}
+	public FileDocumeto getCapaLivro() {
+		return capaLivro;
+	}
+	public void setCapaLivro(FileDocumeto capaLivro) {
+		this.capaLivro = capaLivro;
 	}
 	public Usuario getIdResponssavelDoCadastroDoLivro() {
 		return idResponssavelDoCadastroDoLivro;
@@ -91,15 +76,35 @@ public class Livro implements Serializable {
 	public void setIdResponssavelDoCadastroDoLivro(Usuario idResponssavelDoCadastroDoLivro) {
 		this.idResponssavelDoCadastroDoLivro = idResponssavelDoCadastroDoLivro;
 	}
-	public String getCategoriaLivro() {
-		return categoriaLivro;
+	public AutorLivro getAutorLivro() {
+		return autorLivro;
 	}
-	public void setCategoriaLivro(String categoriaLivro) {
-		this.categoriaLivro = categoriaLivro;
+	public void setAutorLivro(AutorLivro autorLivro) {
+		this.autorLivro = autorLivro;
 	}
-	
-	
-	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(anexoLivro, autorLivro, capaLivro, codigoLivro, descricaoLivro, idLivro,
+				idResponssavelDoCadastroDoLivro, livrosFavoritos, quantidadePaginasLivro, subTituloLivro, tituloLivro);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Livro other = (Livro) obj;
+		return Objects.equals(anexoLivro, other.anexoLivro) && Objects.equals(autorLivro, other.autorLivro)
+				&& Objects.equals(capaLivro, other.capaLivro) && codigoLivro == other.codigoLivro
+				&& Objects.equals(descricaoLivro, other.descricaoLivro) && idLivro == other.idLivro
+				&& Objects.equals(idResponssavelDoCadastroDoLivro, other.idResponssavelDoCadastroDoLivro)
+				&& livrosFavoritos == other.livrosFavoritos
+				&& Objects.equals(quantidadePaginasLivro, other.quantidadePaginasLivro)
+				&& Objects.equals(subTituloLivro, other.subTituloLivro)
+				&& Objects.equals(tituloLivro, other.tituloLivro);
+	}
 
+	
 }

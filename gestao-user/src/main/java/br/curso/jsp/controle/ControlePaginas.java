@@ -12,37 +12,30 @@ import br.curso.jsp.constante.paginas.PaginasRedirect;
 /**
  * Servlet implementation class RequestPaginad
  */
-@WebServlet(urlPatterns = {"/novousuario" ,   "/novolivro"})
+@WebServlet(urlPatterns = { "/novousuario", "/novolivro", "/inicio" })
 public class ControlePaginas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
-   
-    public ControlePaginas() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	public ControlePaginas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String action = request.getServletPath();
-		if(action.equals("/novousuario")) {
-			request.getRequestDispatcher(PaginasRedirect.PAGINA_CADASTRO_USUARIO).forward(request, response);
-			
-		}else if(action.equals("/novolivro")) {
-			request.getRequestDispatcher(PaginasRedirect.PAGINA_CADASTRO_LIVROS).forward(request, response);
+		if (action.equals("/novousuario")) {
+			request.getRequestDispatcher(PaginasRedirect.PAGINA_CADASTRO_NOVO_USUARIO).forward(request, response);
 
-		}else {
+		} else if (action.equals("/novolivro")) {
+			request.getRequestDispatcher(PaginasRedirect.PAGINA_CADASTRAR_NOVO_LIVRO).forward(request, response);
+
+		} else {
 			request.getRequestDispatcher(PaginasRedirect.PAGINA_HOME).forward(request, response);
 
 		}
-		
-		
-		
-		
-		
+
 	}
 
-	
 }

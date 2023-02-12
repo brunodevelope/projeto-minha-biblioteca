@@ -1,4 +1,4 @@
-package br.curso.jsp.inteface.login;
+package br.curso.jsp.inteface.repository;
 
 import java.sql.SQLException;
 

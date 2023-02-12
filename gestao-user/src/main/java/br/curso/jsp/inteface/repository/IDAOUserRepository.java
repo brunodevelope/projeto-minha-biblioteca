@@ -1,11 +1,11 @@
-package br.curso.jsp.inteface.login;
+package br.curso.jsp.inteface.repository;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import br.curso.jsp.model.Usuario;
 
-public interface IDAOUser {
+public interface IDAOUserRepository {
     
 	
 	 Usuario salvar(Usuario dadosUsuario , long id_Admin) throws SQLException;

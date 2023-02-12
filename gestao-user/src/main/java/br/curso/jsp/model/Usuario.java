@@ -1,9 +1,14 @@
 
 package br.curso.jsp.model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
+
+import javax.servlet.ServletException;
+
+import br.curso.jsp.util.UploadFile;
 
 public class Usuario implements Serializable {
 
@@ -139,7 +144,7 @@ public class Usuario implements Serializable {
 
 
 
-	public void setFoto(String foto) {
+	public void setFoto(String foto)  {
 		this.foto = foto;
 	}
 

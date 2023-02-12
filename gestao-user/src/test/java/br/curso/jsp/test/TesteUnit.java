@@ -7,12 +7,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import br.curso.jsp.dao.user.DAOUser;
+import br.curso.jsp.dao.user.repository.DaoUsuarioRepository;
 import br.curso.jsp.login.DAOAutenticarUsuario;
 import br.curso.jsp.model.Usuario;
 
 class TesteUnit {
-	private DAOUser daoUser = new DAOUser();
+	private DaoUsuarioRepository daoUser = new DaoUsuarioRepository();
 
 	@Test
 	void test() {

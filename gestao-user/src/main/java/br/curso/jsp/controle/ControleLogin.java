@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.curso.jsp.constante.paginas.PaginasRedirect;
-import br.curso.jsp.dao.user.DAOUser;
+import br.curso.jsp.dao.user.repository.DaoUsuarioRepository;
 import br.curso.jsp.login.DAOAutenticarUsuario;
 import br.curso.jsp.model.Usuario;
 
@@ -20,7 +20,7 @@ import br.curso.jsp.model.Usuario;
 public class ControleLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DAOAutenticarUsuario autenticarsuario = new DAOAutenticarUsuario();
-	private DAOUser daoUser = new DAOUser();
+	private DaoUsuarioRepository daoUser = new DaoUsuarioRepository();
 	
 
 	public ServletConfig getServletConfig() {
@@ -66,6 +66,7 @@ public class ControleLogin extends HttpServlet {
 						msg = "usuario invalido";
 						request.setAttribute("msg", msg);
 						request.getRequestDispatcher(PaginasRedirect.INDEX).forward(request, response);
+
 					}
 				
 

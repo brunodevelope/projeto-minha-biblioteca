@@ -32,9 +32,10 @@ public class FilterLogin implements Filter {
 			req.setAttribute("msg", menssagem);
 			RequestDispatcher redirect = req.getRequestDispatcher("/index.jsp");
             redirect.forward(req, response);
+            return;
 		}else {
 			// continua o fluxo
-			chain.doFilter(req, response);
+			chain.doFilter(request, response);
 		}
 
 	}
